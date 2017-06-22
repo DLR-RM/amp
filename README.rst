@@ -11,20 +11,19 @@ dynamic algorithms are not a part of the library, but can be loaded at
 run-time allowing the user flexibility to suit their needs. 
 The library includes general modules for: 
 
-* Robot trajectory and state representation .
+* Robot trajectory and state representation.
 * Trajectory parameterization with general BSplines:
-  * Linear fitting
-  * Quadratic minimization 
+    * Linear fitting
+    * Quadratic minimization 
 * Interface to various robot kinematics and dynamics libraries:
-  * RBDL <https://bitbucket.org/rbdl/rbdl>
-  * Orocos KDL <http://www.orocos.org/kdl> 
+    * RBDL <https://bitbucket.org/rbdl/rbdl>
+    * Orocos KDL <http://www.orocos.org/kdl> 
 * Forward and inverse kinematic trajectory generation
 * Sampling-based motion planning (RRT, RRT*)
-  * In any Tool Center Point (TCP) space. 
-  * In the robot's joint space. 
-  * With bound constraints on states and inputs, 
-  * and collision constraints using the Bullet Collision Library, 
-    <http://bulletphysics.org>
+    * In any Tool Center Point (TCP) space. 
+    * In the robot's joint space. 
+    * With bound constraints on states and inputs, 
+    * and collision constraints using the Bullet Collision Library <http://bulletphysics.org>
 
 The code is developed by Samantha Stoneman <samantha.stoneman@dlr.de> and 
 Roberto Lampariello <roberto.lampariello@dlr.de> at the Institue of Robotics 
@@ -41,7 +40,7 @@ Recent Changes
 ===============================================================================
 
 * 22 June 2017: New release 1.0.0:
-  * Initial public release.
+    * Initial public release.
 
 
 Performance
@@ -51,14 +50,7 @@ The inverse kinematics -based RRT algorithm was tested on a difficult
 point-to-point TCP motion which could not be solved in one trajectory. The
 following table shows the performance results for several parameter settings.
 This benchmark problem is described in more detail in the Examples section. 
-<pre>
-Robot    Simulations    MAX: iter./ tries/ radius    AVERAGE: comp-time/ tree-size/ iters/ tries/ success
-LWR4     1000                  500/     1/   0.1                18.61 s/        63/   185/    1 /   60.2% 
-LWR4     1000                10000/     1/   0.1               187.12 s/       153/  1760/    1 /   86.0%
-LWR4     1000                  100/    10/   0.05               36.28 s/        17/    39/   3.4/   41.0%
-LWR4     1000                  100/    10/   0.1                29.85 s/        34/    59/   2.5/   91.8%
-LWR4     1000                  100/    10/   0.5                22.44 s/         8/    35/   1.9/   97.7%
-</pre>
+
 
 Examples
 ===============================================================================
@@ -66,12 +58,11 @@ Examples
 A sequence of examples are provided, increasing in complexity to demonstrate
 the usage of the library. 
 
-* A simple example for loading a robot model and environment from a .urdf
-file(s) and accessing model data members using the C++ API.
+* A simple example for loading a robot model and environment from a .urdf file(s) and accessing model data members using the C++ API.
 
 * An example demonstrating the inverse kinematics- based trajectory generation.
 
-* An example demonstrating the use of the rrt planner module in a robot TCP
+* An example demonstrating the use of the rrt planner module in a robot TCP 
 space.
 
 
