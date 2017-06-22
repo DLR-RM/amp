@@ -1,0 +1,30 @@
+/** \file parse_urdf_example.dox 
+ * \page parse_urdf_example Parse URDF
+ *
+ * This simple example demonstrates how a *.urdf model is loaded in the Amp API
+ * and how to access the data in the loaded model. To load a model requires
+ * the user to select a KD library. Amp does not include urdf support, this
+ * feature is a part of the KD library. The simulation class which wraps the
+ * chosen KD library \c amp::sim_wrapper is instantiated with the
+ * path to the desired model and populates it's internal model member on
+ * construction.  
+ *
+ * \includelineno tests/parse_urdf_test.cpp
+ *
+ * Here the instantiation of \c amp::sim_wrapper internally calls the
+ * creates the model object: 
+ * \code
+ * typedef amp::sim_wrapper<double> sim_t;
+ * std::shared_ptr<sim_t> sim = std::make_shared<sim_t>(file_name_in);
+ * \endcode
+ *
+ * The simulation API can then be used to inspect the model and computer
+ * properties with it:
+ *
+ * \code
+ * std::cerr << "model num dof: " << sim->get_model_dof() << std::endl;
+ * \endcode
+ *
+ */
+  
+

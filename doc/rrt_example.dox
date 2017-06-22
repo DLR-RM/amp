@@ -1,0 +1,34 @@
+/** \file rrt_example.dox 
+ * \page rrt_example Inverse Kinematics -based RRT 
+ *
+ * This simple example demonstrates how to generate the joint trajectory of a 
+ * Robot given initial and final boundary conditions on a TCP of the Robot.
+ *
+ * The modules required to solve this problem are:
+ * <ul>
+ * <li>Trajectory and Node \n
+ *   Provides user-friendly and efficient state representation of the robot 
+ *   joint and tcp states over a trajectory.</li>
+ * <li>Simulator \n
+ *   Wrapper to the dynamically loaded KD library providing
+ *   methods to call model-specific functions, e.g. get a jacobian, get a TCP
+ *   transformation or invert a jacobian.</li>
+ * <li>Interpolator
+ *   Generates the spline representation for the desired TCP motion by
+ *   solving for the spline vertices which minimize the integral acceleration^2
+ *   of each TCP dof motion. </li>
+ * <li>Planner \n
+ *   Takes as input the desired TCP trajectory and using an adaptive
+ *   step-size integrator solves the inverse kinematics problem forward in time
+ *   along the trajectory to provide the required joint motions.</li>
+ * <li>RRT \n
+	 Includes both the tree structure and the classic RRT and RRT* algorithms.
+	 Takes as input the boundary conditions and iteratively generates random TCP
+	 states and respective joint trajectories from the initial node until one
+	 can successly 'connect' to the reuqested final condition node.</li> 
+ * </ul>
+ * 
+ * \includelineno tests/rrt_test.cpp
+ *
+ */
+

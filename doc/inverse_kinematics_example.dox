@@ -1,0 +1,33 @@
+/** \file inverse_kinematics_example.dox 
+ * \page inverse_kinematics_example Inverse Kinematics
+ *
+ * This Inverse Kinematics example demonstrates how to use several modules in the
+ * Amp library to generate the joint trajectory of a Robot given initial and
+ * final boundary conditions on a TCP of the Robot. 
+ * 
+ * The modules required to solve this problem are:
+ * <ul>
+ * <li>Trajectory and Node \n
+ *   Provides user-friendly and efficient state representation of the robot 
+ *   joint and tcp states over a trajectory.</li>
+ * <li>Simulator \n
+ *   Wrapper to the dynamically loaded KD library providing
+ *   methods to call model-specific functions, e.g. get a jacobian, get a TCP
+ *   transformation or invert a jacobian.</li>
+ * <li>Interpolator
+ *   Generates the spline representation for the desired TCP motion by
+ *   solving for the spline vertices which minimize the integral acceleration^2
+ *   of each TCP dof motion. </li>
+ * <li>Planner \n
+ *   Takes as input the desired TCP trajectory and using an adaptive
+ *   step-size integrator solves the inverse kinematics problem forward in time
+ *   along the trajectory to provide the required joint motions.</li>
+ * </ul>
+ *
+ * \includelineno tests/inverse_kinematics_test.cpp
+ *
+ *
+ */
+  
+
+

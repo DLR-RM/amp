@@ -1,0 +1,55 @@
+###############################################################################
+# Amp Parameters
+#
+# - The Kinematics & Dynamics Library -
+# possible values: rbdl, kdl 
+################################################################################
+robot_urdf_model: "./models/urdf/lwr.urdf"
+kd_library: "rbdl"
+tcp_parent_joint: 6
+tcp_transformation_from_parent:
+  translation: [0., 0., 0.]
+  rotation: [0., 0., 0., 1.]
+
+
+###############################################################################
+# TCP space trajectory planner
+# 
+# - The linear solver -
+# possible values: LU=0, QR=1, SVD=2, LLT=3*, LDLT=4* (*for square jacobians only)
+# Note: SVD is recommended for optimal solutions
+#
+###############################################################################
+local_trajectory_planner:
+  initial_discretization: 100
+  num_fixed_boundary_conditions: 3
+  duration: 2.
+  inverse_kinematics:
+    solver: 2
+  integration:  
+    absolute_tolerance: 1e-10
+    relative_tolerance: 1e-10
+  position_error:
+    translation_gain: 0.
+    rotation_gain: 10.
+    translation_tolerance: 1e-3 
+    rotation_tolerance: 1e-3
+  velocity_error: 
+    translation_tolerance: 1e-1
+    angular_tolerance: 5e-1
+
+
+###############################################################################
+# Global Planner: rrt, rrt*, ...
+#
+#
+###############################################################################
+global_planner:
+  max_seeds: 10 
+  max_iterations: 100
+  boundary:
+    lower: [-1., -1., -1., -1., -1., -1.]
+    upper: [1., 1., 1., 1., 1., 1.]
+  radius:
+    translation_max_radius: 0.5
+    rotation_max_radius: 0.5

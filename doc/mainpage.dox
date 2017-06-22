@@ -1,0 +1,129 @@
+/** \file mainpage.dox 
+ * \mainpage Main Page 
+ * \image html amp_logo.svg
+ * \image latex amp_logo.eps "" width=\textwidth
+ *
+ * This is the documentation for Amp, the Articulated-robot Motion Planner
+ * library. Amp provides a user-friendly API for loading robot models and 
+ * generating robot joint and Tool Center Point (TCP) trajectories for point-
+ * to-point motion planning problems. Amp provides standalone trajectory
+ * parameterization and global search algorithms. Robot kinematic and
+ * dynamic algorithms are not a part of the library, but can be loaded at
+ * run-time allowing the user flexibility to suit their needs. 
+ * The library includes general modules for: 
+ *
+ * <ul>
+ * <li>Robot trajectory and state representation .</li>
+ * <li>Trajectory parameterization with general BSplines:</li>
+ *   <ul> 
+ *      <li>Linear fitting</li> 
+ *      <li>Quadratic minimization</li> 
+ *	 </ul>
+ * <li>Interface to various robot kinematics and dynamics libraries:</li>
+ *   <ul> 
+ *       <li>RBDL, <a 
+ *       href="https://bitbucket.org/rbdl/rbdl">https://bitbucket.org/rbdl/rbdl</a>.</li> 
+ *       <li>Orocos KDL, <a
+ *       href="http://www.orocos.org/kdl">http://www.orocos.org/kdl</a>.</li> 
+ *	 </ul>
+ * <li>Forward and inverse kinematic trajectory generation</li>
+ * <li>Sampling-based motion planning (RRT, RRT*)</li>
+ *   <ul> 
+ *       <li>In any Tool Center Point (TCP) space.</li> 
+ *       <li>In the robot's joint space.</li> 
+ *       <li>With bound constraints on states and inputs, 
+ *	     <li>and collision constraints using the Bullet Collision Library, <a 
+ *       href="http://bulletphysics.org">http://bulletphysics.org</a>.</li> 
+ *   </ul>
+ * </ul>
+ *
+ * 
+ * The code is developed by <a
+ * href="mailto:samantha.stoneman@dlr.de">Samantha Stoneman</a> and 
+ * <a href="mailto:roberto.lampariello@dlr.de">Roberto Lampariello</a> at the 
+ * <a href="http://www.dlr.de/rmc/rm/en">Institue of Robotics and
+ * Mechatronics</a> at the German Aerospace Center. 
+ *  
+ * \section Download
+ *
+ * You can download the most recent stable version as zip file from
+ * here:
+ 
+ * All development takes place on Github and you can follow Amp's
+ * development here:
+ 
+ * \section recent_changes Recent Changes
+ * <ul>
+ * <li>8 June 2017: New release 1.0.0:
+ *   <ul>
+ *     <li> Initial public release.</li>
+ *   </ul>
+ * </li>
+ * </ul>
+ *
+ * \section Performance
+ * The inverse kinematics -based RRT algorithm was tested on a difficult
+ * point-to-point TCP motion which could not be solved in one trajectory. The
+ * following table shows the performance results for several parameter settings.
+ * This benchmark problem is described in more detail in the Examples section. 
+ * \verbatim
+Robot    Simulations    MAX: iter./ tries/ radius    AVERAGE: comp-time/ tree-size/ iters/ tries/ success
+LWR4     1000                  500/     1/   0.1                18.61 s/        63/   185/    1 /   60.2% 
+LWR4     1000                10000/     1/   0.1               187.12 s/       153/  1760/    1 /   86.0%
+LWR4     1000                  100/    10/   0.05               36.28 s/        17/    39/   3.4/   41.0%
+LWR4     1000                  100/    10/   0.1                29.85 s/        34/    59/   2.5/   91.8%
+LWR4     1000                  100/    10/   0.5                22.44 s/         8/    35/   1.9/   97.7%
+\endverbatim
+ *
+ * \section Examples
+ *
+ * A sequence of examples are provided, increasing in complexity to demonstrate
+ * the usage of the library. 
+ *
+ * A simple example for loading a robot model and environment from a .urdf
+ * file(s) and accessing model data members using the C++ API can be found 
+ * \ref parse_urdf_example "here".
+ *
+ * An example demonstrating the inverse kinematics- based trajectory generation 
+ * can be found \ref inverse_kinematics_example "here".
+ *
+ * An example demonstrating the use of the rrt planner module in a robot TCP
+ * space can be found \ref rrt_example "here".
+ * 
+ * \section API Reference Pages
+ * 
+ * \li \subpage robot_models
+ * \li \subpage trajectory_generation
+ * \li \subpage inverse_kinematics_planning
+ * \li \subpage sampling_based_planners
+ * \li \subpage collision_detection
+ *
+ * \section Licensing
+ *
+ * The library is published under the very permissive zlib free software
+ * license which should allow you to use the software wherever you need.
+ * Here is the full license text:
+ * \verbatim
+Amp - Articulated-robot Motion Planner library.
+Copyright 2017 Samantha Stoneman
+Research Associate, German Aerospace Center (DLR)
+
+Amp is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Amp is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with Amp. If not, see <http://www.gnu.org/licenses/>.
+
+\endverbatim
+
+ * \section Acknowledgements
+ * 
+ */
+
