@@ -1,6 +1,6 @@
-###############################################################################
-# Articulated-robot Motion Planner Library
-###############################################################################
+
+Articulated-robot Motion Planner Library
+===============================================================================
 
 This is the documentation for Amp, the Articulated-robot Motion Planner
 library. Amp provides a user-friendly API for loading robot models and 
@@ -32,24 +32,21 @@ Roberto Lampariello <roberto.lampariello@dlr.de> at the Institue of Robotics
 and Mechatronics <http://www.dlr.de/rmc/rm/en> at the German Aerospace Center. 
  
 
-###############################################################################
-# Installation
-##############################################################################
+Installation
+===============================================================================
 
 Coming soon.
 
 
-###############################################################################
-# Recent Changes
-###############################################################################
+Recent Changes
+===============================================================================
 
 * 22 June 2017: New release 1.0.0:
 ** Initial public release.
 
 
-###############################################################################
-# Performance
-###############################################################################
+Performance
+===============================================================================
 
 The inverse kinematics -based RRT algorithm was tested on a difficult
 point-to-point TCP motion which could not be solved in one trajectory. The
@@ -64,27 +61,23 @@ LWR4     1000                  100/    10/   0.1                29.85 s/        
 LWR4     1000                  100/    10/   0.5                22.44 s/         8/    35/   1.9/   97.7%
 
 
-###############################################################################
-# Examples
-###############################################################################
+Examples
+===============================================================================
 
 A sequence of examples are provided, increasing in complexity to demonstrate
 the usage of the library. 
 
 * A simple example for loading a robot model and environment from a .urdf
-file(s) and accessing model data members using the C++ API can be found 
-\ref parse_urdf_example "here".
+file(s) and accessing model data members using the C++ API.
 
-* An example demonstrating the inverse kinematics- based trajectory generation 
-can be found \ref inverse_kinematics_example "here".
+* An example demonstrating the inverse kinematics- based trajectory generation.
 
 * An example demonstrating the use of the rrt planner module in a robot TCP
-space can be found \ref rrt_example "here".
+space.
 
 
-###############################################################################
-# License
-###############################################################################
+License
+===============================================================================
 
 The library is published under the GNU Lesser General Public License (LGPL).
 Here is the full license text:
