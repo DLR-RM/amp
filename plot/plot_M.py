@@ -8,10 +8,6 @@ import matplotlib.pyplot as plt
 import math
 
 
-#
-# what is lambda? (c++ lambda?)
-# filt?
-#
 def plot_results(Mm):
 
 	# make automatic for higher number of derivatives

@@ -7,10 +7,6 @@ mpl.use('GTKAgg')
 import matplotlib.pyplot as plt
 
 
-#
-# what is lambda? (c++ lambda?)
-# filt?
-#
 def plot_results(state,dstate):
 
 	# make automatic for higher number of derivatives
