@@ -28,7 +28,7 @@
 	 can successly 'connect' to the reuqested final condition node.</li> 
  * </ul>
  * 
- * \includelineno tests/rrt_test.cpp
+ * \includelineno examples/rrt_example.cpp
  *
  */
 

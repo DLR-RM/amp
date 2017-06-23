@@ -100,8 +100,7 @@ LWR4     1000                  100/    10/   0.5                22.44 s/        
  *
  * \section Licensing
  *
- * The library is published under the very permissive zlib free software
- * license which should allow you to use the software wherever you need.
+ * The library is published under the GNU Lesser General Public License (LGPL).
  * Here is the full license text:
  * \verbatim
 Amp - Articulated-robot Motion Planner library.

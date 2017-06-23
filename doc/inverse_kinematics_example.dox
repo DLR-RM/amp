@@ -24,7 +24,7 @@
  *   along the trajectory to provide the required joint motions.</li>
  * </ul>
  *
- * \includelineno tests/inverse_kinematics_test.cpp
+ * \includelineno examples/inverse_kinematics_example.cpp
  *
  *
  */

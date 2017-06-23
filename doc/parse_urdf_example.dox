@@ -9,7 +9,7 @@
  * path to the desired model and populates it's internal model member on
  * construction.  
  *
- * \includelineno tests/parse_urdf_test.cpp
+ * \includelineno examples/parse_urdf_example.cpp
  *
  * Here the instantiation of \c amp::sim_wrapper internally calls the
  * creates the model object: 
