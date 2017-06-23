@@ -671,6 +671,11 @@ INPUT                  = ../src/amp \
 						 ../include/amp \
 						 ../include/utils \
 						 ../doc/mainpage.dox \
+						 ../doc/robot_models.dox \
+						 ../doc/trajectory_generation.dox \
+						 ../doc/inverse_kinematics_planning.dox \
+						 ../doc/sampling_based_planners.dox \
+						 ../doc/collision_detection.dox \
 						 ../doc/parse_urdf_example.dox \
 						 ../doc/inverse_kinematics_example.dox \
 						 ../doc/rrt_example.dox
