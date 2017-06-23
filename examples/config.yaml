@@ -31,7 +31,7 @@ local_trajectory_planner:
     relative_tolerance: 1e-10
   position_error:
     translation_gain: 0.
-    rotation_gain: 10.
+    rotation_gain: 100.
     translation_tolerance: 1e-3 
     rotation_tolerance: 1e-3
   velocity_error: 
@@ -45,8 +45,8 @@ local_trajectory_planner:
 #
 ###############################################################################
 global_planner:
-  max_seeds: 10 
-  max_iterations: 100
+  max_seeds: 1 
+  max_iterations: 10
   boundary:
     lower: [-1., -1., -1., -1., -1., -1.]
     upper: [1., 1., 1., 1., 1., 1.]
