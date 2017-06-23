@@ -81,11 +81,11 @@ typename rrt<scalar>::rrt_result rrt<scalar>
 
     int rrt_iter = 0;
     bool connected = false;
-	bool sample_connected;
+    bool sample_connected;
     if (connect_to_goal_first)
-		sample_connected=true;
-	else
-		sample_connected=false;
+        sample_connected=true;
+    else
+        sample_connected=false;
 
     std::shared_ptr<traj_t> traj_;
     std::shared_ptr<const node_t> node_last;
@@ -331,16 +331,16 @@ template<typename scalar>
 std::shared_ptr<typename rrt<scalar>::node_t>
 rrt<scalar>::create_sample()
 {
-   std::shared_ptr<node_t> sample = std::make_shared<node_t>(planner_->dof(),3);
-   //positions
-   for (int idx=0; idx<3; ++idx) {
-       sample->state(idx,0) = distributions[0](generator);
-   }
-   //quaternions
-   for (int idx=3; idx<7; ++idx) {
-       sample->state(idx,0) = distributions[1](generator);
-   }
-   return(sample);
+    std::shared_ptr<node_t> sample = std::make_shared<node_t>(planner_->dof(),3);
+    //positions
+    for (int idx=0; idx<3; ++idx) {
+        sample->state(idx,0) = distributions[0](generator);
+    }
+    //quaternions
+    for (int idx=3; idx<7; ++idx) {
+        sample->state(idx,0) = distributions[1](generator);
+    }
+    return(sample);
 }
 
 

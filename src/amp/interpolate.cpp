@@ -28,11 +28,10 @@ along with Amp. If not, see <http://www.gnu.org/licenses/>.
 namespace amp {
 
 
-
-
 template<typename scalar>
 interpolator<scalar>
-::interpolator(const int via_points_, const int dofj_, const int ders_, const guess_flag_t guess_type_in) :
+::interpolator(const int via_points_, const int dofj_, const int ders_,
+               const guess_flag_t guess_type_in) :
     edge_flag(DEFAULT_EDGE),
     guess_flag(guess_type_in),
     n_fbcs(0),
@@ -48,17 +47,11 @@ interpolator<scalar>
 { }
 
 
-
-
-
 template<typename scalar>
 interpolator<scalar>
 ::~interpolator ()
 {
 }
-
-
-
 
 
 template<typename scalar>
@@ -69,18 +62,12 @@ void interpolator<scalar>
 }
 
 
-
-
-
 template<typename scalar>
 void interpolator<scalar>
 ::set_num_params(const int n_p_in) 
 {
-	n_p = n_p_in;
+    n_p = n_p_in;
 }
-
-
-
 
 
 template<typename scalar>
@@ -189,10 +176,6 @@ void interpolator<scalar>
 }
 
 
-
-
-
-
 template<typename scalar>
 void interpolator<scalar>
 ::set_knots(typename sgt::knot_vector& knots)
@@ -205,10 +188,6 @@ void interpolator<scalar>
     knots.segment(order-1,n_kn-2*(order-1))
             = rowVector::LinSpaced(n_kn-2*(order-1),0.,1.);
 }
-
-
-
-
 
 
 template<typename scalar>
@@ -229,7 +208,7 @@ std::shared_ptr<typename interpolator<scalar>::trajectory_t> interpolator<scalar
 
         // set new values
         traj_->set_derivatives(myspline->get_spline_values(order-1).block(0,1,via_in,order-1),
-                                     dim,0,order-1);
+                               dim,0,order-1);
     }
     traj_->normalize_quaternions();
     traj_->check_antipodal_quaternions();
@@ -237,9 +216,6 @@ std::shared_ptr<typename interpolator<scalar>::trajectory_t> interpolator<scalar
 
     return(traj_);
 }
-
-
-
 
 
 template<typename scalar>
@@ -254,10 +230,6 @@ void interpolator<scalar>
         traj_->set_derivatives(point.block(0,1,1,order-1),dim,0,order-1,0,1);
     }
 }
-
-
-
-
 
 
 template<typename scalar>
@@ -285,10 +257,6 @@ void interpolator<scalar>
 }
 
 
-
-
-
-
 template<typename scalar>
 void interpolator<scalar>
 ::set_guess_from_parameters(const Matrix& parameters_,
@@ -302,16 +270,12 @@ void interpolator<scalar>
         myspline->compute_bases(order);
 
         myspline->init_generator(state_from->state.block(dim,0,1,n_fbcs).transpose(),
-                    state_to->state.block(dim,0,1,n_fbcs).transpose(),
-                    sgt::p_vector::Zero(n_p) );
+                                 state_to->state.block(dim,0,1,n_fbcs).transpose(),
+                                 sgt::p_vector::Zero(n_p) );
 
         myspline->update_vertices(parameters_.block(0,dim,n_p,1));
     }
 }
-
-
-
-
 
 
 template<typename scalar>
@@ -331,8 +295,7 @@ void interpolator<scalar>
         myspline->set_via_points(trajectory_->via_points());
         myspline->compute_bases_nonuniform(trajectory_->times(), order);
         myspline->init_generator( state_from->state.block(dim,0,1,n_fbcs).transpose(),
-                    state_to->state.block(dim,0,1,n_fbcs).transpose(),
-                    sgt::p_vector::Zero(n_p));
+                                  state_to->state.block(dim,0,1,n_fbcs).transpose(), sgt::p_vector::Zero(n_p));
 
         // fit spline to position curve of current DoF
         myspline->llsq_initial_guess((trajectory_->derivatives(dim)).block(0,0,trajectory_->via_points(),1), 0);
@@ -345,11 +308,9 @@ void interpolator<scalar>
     for (auto spline=splines.begin(); spline!=splines.end(); ++spline, ++dim) {
         (*spline)->set_via_points(via_points);
         (*spline)->compute_bases(order);
-        trajectory_->set_derivatives((*spline)->get_spline_values(order-1).block(0,1,via_points,order-1),
-                                     dim,0,order-1);
+        trajectory_->set_derivatives((*spline)->get_spline_values(order-1).block(0,1,via_points,order-1), dim,0,order-1);
     }
 }
-
 
 
 // instantiate robot class

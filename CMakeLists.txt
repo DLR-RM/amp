@@ -16,11 +16,11 @@ option(LOG_ALL_DATA "activate agressive data logging - this option impacts comp 
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.8)
-		message(FATAL_ERROR "Insufficient GCC version!")
+        message(FATAL_ERROR "Insufficient GCC version!")
     endif()
 elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 3.7)
-		message(FATAL_ERROR "Insufficient Clang version!")
+        message(FATAL_ERROR "Insufficient Clang version!")
     endif()
 endif()
 
@@ -83,7 +83,7 @@ if(VERBOSE)
 endif(VERBOSE)
 
 if(LOG_ALL_DATA)
-	add_definitions(-DLOG_ALL_DATA)
+    add_definitions(-DLOG_ALL_DATA)
 endif(LOG_ALL_DATA)
 
 #############################
@@ -92,10 +92,10 @@ endif(LOG_ALL_DATA)
 add_subdirectory(src)
 
 if(BUILD_TESTS)
-	add_subdirectory(tests)
+    add_subdirectory(tests)
 endif(BUILD_TESTS)
 
 if(BUILD_EXAMPLES)
-	add_subdirectory(examples)
+    add_subdirectory(examples)
 endif(BUILD_EXAMPLES)
 

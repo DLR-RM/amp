@@ -1,6 +1,6 @@
 /**
- * \brief Example using the rrt planner with inverse kinematics planner as edge steering
- * method.
+ * \brief Example using the rrt planner with inverse kinematics planner as
+ * edge steering method.
  */
 #include <Eigen/Dense>
 #include <iostream>
@@ -21,7 +21,7 @@
 
 /** Writes some information about the solution to a log file */
 void print_log_file(const int sim_idx, const int iter, const int edge, const bool success, 
-		const std::chrono::milliseconds& times, std::ofstream& output, const int num_try);
+                    const std::chrono::milliseconds& times, std::ofstream& output, const int num_try);
 
 
 int main (int argc, char* argv[])
@@ -53,7 +53,7 @@ int main (int argc, char* argv[])
     /** Initial Configuration */
     state_0 <<  1.5, 1.3, 1.5,  1.6, 0., -0.8, 0.;
 
-	/** Final Configuration */
+    /** Final Configuration */
     state_f << -1.5, 1.3, 1.5, -1.6, 0.,  0.8, 0.;
 
 
@@ -61,25 +61,25 @@ int main (int argc, char* argv[])
     std::ofstream log;
     log.open("./output_log.dat", std::ofstream::out);
     for (int nsim=0; nsim<configuration.rrt_max_simulations(); ++nsim) {
-		std::cerr << "Simulation: " << nsim << std::endl;
-		auto start = std::chrono::steady_clock::now();
-		
+        std::cerr << "Simulation: " << nsim << std::endl;
+        auto start = std::chrono::steady_clock::now();
+
         for (int ntry=0; ntry<configuration.rrt_max_seeds(); ++ntry) {
-			std::cerr << "Try: " << ntry << std::endl;
+            std::cerr << "Try: " << ntry << std::endl;
 
             /** Setup trajectory and planner */
             sim->fwd_kin(state_0,dstate_0);
             tcp_0 = sim->tcp_pose(state_0);
-			std::shared_ptr<node_t> node_initial = std::make_shared<node_t>(ndofj,nder);
-			node_initial->time_curr = 0.;
-			node_initial->state.block(0,0,7,1) = tcp_0;
-			node_initial->joints.block(0,0,ndofj,1) = state_0;
+            std::shared_ptr<node_t> node_initial = std::make_shared<node_t>(ndofj,nder);
+            node_initial->time_curr = 0.;
+            node_initial->state.block(0,0,7,1) = tcp_0;
+            node_initial->joints.block(0,0,ndofj,1) = state_0;
 
             sim->fwd_kin(state_f,dstate_0);
             tcp_f = sim->tcp_pose(state_f);
-			std::shared_ptr<node_t> node_final = std::make_shared<node_t>(ndofj,nder);
-			node_final->time_curr = 1.;
-			node_final->state.block(0,0,7,1) = tcp_f;
+            std::shared_ptr<node_t> node_final = std::make_shared<node_t>(ndofj,nder);
+            node_final->time_curr = 1.;
+            node_final->state.block(0,0,7,1) = tcp_f;
 
             /** Setup all the required amp modules */
             std::shared_ptr<interp_t> interpolator =
@@ -105,12 +105,12 @@ int main (int argc, char* argv[])
                 rrt_planner->parse_solutions();
                 const std::shared_ptr<const traj_t> solution = rrt_planner->get_solution(0);
                 rrt_planner->write_traj_to_file(solution, "solution", nsim);
-				auto end = std::chrono::steady_clock::now();
-				auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(end-start);
-				print_log_file(nsim, res_.iterations, res_.edges, res_.goal_connected, diff, log, ntry);
-				break;
-			}
-		}
+                auto end = std::chrono::steady_clock::now();
+                auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(end-start);
+                print_log_file(nsim, res_.iterations, res_.edges, res_.goal_connected, diff, log, ntry);
+                break;
+            }
+        }
     }
 
     log.close();
@@ -119,7 +119,7 @@ int main (int argc, char* argv[])
 
 
 void print_log_file(const int sim_idx, const int iter, const int edge, const bool success, 
-		const std::chrono::milliseconds& times, std::ofstream& output, const int num_try)
+                    const std::chrono::milliseconds& times, std::ofstream& output, const int num_try)
 {
     std::ostringstream line;
     line.setf(std::ios::fixed, std::ios::floatfield);

@@ -343,11 +343,11 @@ void trajectory<scalar>
 template<typename scalar>
 void trajectory<scalar>
 ::set_joint_dimensions(const Matrix& values,
-                 const int der_,
-                 const int dim_,
-                 const int ndof_,
-                 const int via_,
-                 int total_)
+                       const int der_,
+                       const int dim_,
+                       const int ndof_,
+                       const int via_,
+                       int total_)
 {
     for(int idx=0; idx<ndof_; ++idx) {
         trajectory_.block(via_, 1+n_state+n_angle+n_control+(dim_+idx)*ders+der_,

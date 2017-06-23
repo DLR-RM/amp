@@ -1,4 +1,7 @@
-/* Example urdf model loading */
+/**
+ * \brief Example loading a urdf model.
+ */
+
 #include <Eigen/Dense>
 
 #include "amp/config.hpp"
@@ -10,7 +13,7 @@
 #include <memory>
 
 #ifdef DEBUG
-  #define _DEBUG_
+#define _DEBUG_
 #endif
 
 int main (int argc, char* argv[])

@@ -38,7 +38,7 @@ along with Amp. If not, see <http://www.gnu.org/licenses/>.
 #include "amp/rrt.hpp"
 
 #ifdef DEBUG
-  #define _DEBUG_
+#define _DEBUG_
 #endif
 
 namespace amp {
@@ -56,13 +56,13 @@ public:
     typedef rrt<scalar> rrt_t;
 
     /**
-	 * \brief Initializes all parameters to the default values.
-	 */
+     * \brief Initializes all parameters to the default values.
+     */
     parameters(const char* config_in);
 
-	/**
-	 * \brief Sets the parameters defined in the yaml config_in file.
-	 */
+    /**
+     * \brief Sets the parameters defined in the yaml config_in file.
+     */
     bool set_from_yaml();
 
     /**
@@ -113,7 +113,7 @@ public:
             m_translation_vel_tolerance(1e-1),
             m_angular_vel_tolerance(1e-1) {}
 
-		int m_initial_discretization;
+        int m_initial_discretization;
         int m_num_fixed_bcs;
         scalar m_duration;
         int m_linear_solver;
@@ -125,28 +125,28 @@ public:
         scalar m_rotation_tolerance;
         scalar m_translation_vel_tolerance;
         scalar m_angular_vel_tolerance;
-	};
+    };
 
     /**
      * @brief The global_planner struct
      * Groups the parameters pertaining to the global planner.
      */
     struct global_planner {
-		global_planner():
+        global_planner():
             m_max_iterations(100),
             m_max_seeds(10),
             m_max_simulations(1),
             m_rrt_max_translation_radius(0.5),
             m_rrt_max_rotation_radius(0.5) {}
-	
-		int m_max_iterations;
-		int m_max_seeds;
-		int m_max_simulations;
+
+        int m_max_iterations;
+        int m_max_seeds;
+        int m_max_simulations;
         scalar m_rrt_max_translation_radius;
         scalar m_rrt_max_rotation_radius;
         std::vector<scalar> m_bounds_upper;
         std::vector<scalar> m_bounds_lower;
-	};
+    };
 
     inline int local_trajectory_duration() const {return(traj_planner.m_duration);}
 
@@ -156,9 +156,9 @@ public:
 
     inline int rrt_max_seeds() const {return(rrt_planner.m_max_seeds);}
 
-    private:
+private:
     YAML::Node params;
-	bool m_isloaded;
+    bool m_isloaded;
     local_trajectory_planner traj_planner;
     global_planner rrt_planner;
     std::string robot_model_;

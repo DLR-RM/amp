@@ -1,5 +1,5 @@
 /**
- * \brief Test inverse kinematics planner
+ * \brief Test inverse kinematics planner.
  */
 
 #include <Eigen/Dense>
@@ -16,7 +16,7 @@
 #include <memory>
 
 #ifdef DEBUG
-  #define _DEBUG_
+#define _DEBUG_
 #endif
 
 int main (int argc, char* argv[])
@@ -49,7 +49,7 @@ int main (int argc, char* argv[])
     /** Initial Configuration */
     state_0 <<  1.5, 1.3, 1.5,  1.6, 0., -0.8, 0.;
 
-   /** Setup the initial tcp pose */
+    /** Setup the initial tcp pose */
     sim->fwd_kin(state_0,dstate_0);
     tcp_0 = sim->tcp_pose(state_0);
     std::shared_ptr<node_t> node_initial = std::make_shared<node_t>(ndofj,nder);
