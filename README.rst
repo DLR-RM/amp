@@ -17,19 +17,20 @@ includes general modules for:
     * Supports linear fitting
     * Supports quadratic minimization 
 * Interface to various robot kinematics and dynamics libraries:
-    * RBDL <https://bitbucket.org/rbdl/rbdl>
-    * Orocos KDL <http://www.orocos.org/kdl> 
+    * RBDL https://bitbucket.org/rbdl/rbdl
+    * Orocos KDL http://www.orocos.org/kdl 
 * Forward and Inverse kinematics trajectory generation
     * Where IK solutions are computed numerically
 * Sampling-based motion planning (RRT, RRT*)
+    * Using a simple list-based tree structure and kd-tree nearest-neighbor search: https://github.com/jtsiomb/kdtree  
     * In any Tool Center Point (TCP) space
     * In the robot's joint space
     * With bound constraints on states and inputs, 
-    * and collision constraints using the Bullet Collision Library <http://bulletphysics.org>
+    * and collision constraints using the Bullet Collision Library http://bulletphysics.org  
 
 The code is developed by Samantha Stoneman <samantha.stoneman@dlr.de> and 
 Roberto Lampariello <roberto.lampariello@dlr.de> at the Institue of Robotics 
-and Mechatronics <http://www.dlr.de/rmc/rm/en> at the German Aerospace Center. 
+and Mechatronics http://www.dlr.de/rmc/rm/en at the German Aerospace Center. 
  
 
 Installation
@@ -61,11 +62,8 @@ A sequence of examples are provided, increasing in complexity to demonstrate
 the usage of the library. 
 
 * A simple example for loading a robot model and environment from a .urdf file(s) and accessing model data members using the C++ API.
-
 * An example demonstrating the inverse kinematics- based trajectory generation.
-
-* An example demonstrating the use of the rrt planner module in a robot TCP 
-space.
+* An example demonstrating the use of the rrt planner module in a robot TCP space.
 
 
 License
@@ -89,4 +87,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
-along with Amp. If not, see <http://www.gnu.org/licenses/>.
+along with Amp. If not, see http://www.gnu.org/licenses/.
