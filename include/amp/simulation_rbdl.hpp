@@ -108,6 +108,11 @@ public:
     jacobian_t get_J(const vector_t& state_) const;
 
     /**
+     * @brief Sets the current Jacobian
+     */
+    jacobian_t get_J_with_update(const vector_t& state_) const;
+
+    /**
      * @brief solves dstate: dtcp = J(state)*dstate
      * using one of the available linear solver
      */

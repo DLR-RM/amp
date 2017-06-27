@@ -130,6 +130,18 @@ rbdl_interface<scalar>::get_J(const vector_t& state_) const
 }
 
 
+template<typename scalar>
+typename rbdl_interface<scalar>::jacobian_t
+rbdl_interface<scalar>::get_J_with_update(const vector_t& state_) const
+{
+    jacobian_t J_ = jacobian_t::Zero(6,model->dof_count);
+    RigidBodyDynamics::CalcPointJacobian6D(*model, state_, this->tcp_id_,
+                                           this->tcp_offset_.head(3), J_, true);
+    return (J_);
+}
+
+
+
 template<typename scalar> 
 typename rbdl_interface<scalar>::vector_t
 rbdl_interface<scalar>::rbdl_interface::inv_kin(const matrix_t& dtcp_,
