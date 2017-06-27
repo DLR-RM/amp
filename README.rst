@@ -8,20 +8,22 @@ generating robot joint and Tool Center Point (TCP) trajectories for point-
 to-point motion planning problems. Amp provides standalone trajectory
 parameterization and global search algorithms. Robot kinematic and
 dynamic algorithms are not a part of the library, but can be loaded at
-run-time allowing the user flexibility to suit their needs. 
-The library includes general modules for: 
+run-time allowing the user flexibility to suit their needs. The library 
+includes general modules for: 
 
-* Robot trajectory and state representation.
-* Trajectory parameterization with general BSplines:
-    * Linear fitting
-    * Quadratic minimization 
+* Robot trajectory and state representation
+    * Using Eigen matrix objects
+* Trajectory parameterization with general BSplines
+    * Supports linear fitting
+    * Supports quadratic minimization 
 * Interface to various robot kinematics and dynamics libraries:
     * RBDL <https://bitbucket.org/rbdl/rbdl>
     * Orocos KDL <http://www.orocos.org/kdl> 
-* Forward and inverse kinematic trajectory generation
+* Forward and Inverse kinematics trajectory generation
+    * Where IK solutions are computed numerically
 * Sampling-based motion planning (RRT, RRT*)
-    * In any Tool Center Point (TCP) space. 
-    * In the robot's joint space. 
+    * In any Tool Center Point (TCP) space
+    * In the robot's joint space
     * With bound constraints on states and inputs, 
     * and collision constraints using the Bullet Collision Library <http://bulletphysics.org>
 
