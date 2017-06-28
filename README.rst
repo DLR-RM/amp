@@ -2,14 +2,12 @@
 Articulated-robot Motion Planner Library
 ===============================================================================
 
-This is the documentation for Amp, the Articulated-robot Motion Planner
-library. Amp provides a user-friendly API for loading robot models and 
-generating robot joint and Tool Center Point (TCP) trajectories for point-
-to-point motion planning problems. Amp provides standalone trajectory
-parameterization and global search algorithms. Robot kinematic and
-dynamic algorithms are not a part of the library, but can be loaded at
-run-time allowing the user flexibility to suit their needs. The library 
-includes general modules for: 
+Amp provides a user-friendly API for loading robot models and generating robot 
+joint and Tool Center Point (TCP) trajectories for point-to-point motion 
+planning problems. Amp provides standalone trajectory parameterization and 
+global search algorithms. Robot kinematic and dynamic algorithms are not a part 
+of the library, but can be loaded at run-time allowing the user flexibility to 
+suit their needs. The library includes general modules for: 
 
 * Robot trajectory and state representation
     * Using Eigen matrix objects
@@ -36,7 +34,43 @@ and Mechatronics http://www.dlr.de/rmc/rm/en at the German Aerospace Center.
 Installation
 ===============================================================================
 
-Coming soon.
+Dependencies
+------------------
+Amp requires at least C++11 and is dependent on several other open-source 
+libraries. The required dependencies are:
+
+* Eigen http://eigen.tuxfamily.org (Core, Linear Algebra and Geometry modules)  
+* Boost http://www.boost.org/ (odeint library)
+* kdtree https://github.com/jtsiomb/kdtree 
+* EigenQuadProg
+
+And the optional dependencies:
+* RBDL https://bitbucket.org/rbdl/rbdl (rbdl, urdf/luamodel libraries)
+* Orocos KDL http://www.orocos.org/kdl 
+* Bullet Collision Library http://bulletphysics.org  (Collision library)
+
+Amp will try to find the depencies using the native CMake `find_package()` tool as
+well as with the `PkgConfig` module. Paths to the valid package paths for the
+required dependencies and the desired optional ones should be set in the
+`CMAKE_PREFIX_PATH`. Static versions of the kdtree and EigenQuadProg (header
+only) are also provided in the ./contrib dir. 
+
+Quick Installation
+------------------
+Amp is built using CMake. From the package root directory, the simplest way to 
+build amp using the default build options.
+
+    > mkdir build
+    > cd build && cmake ../ 
+    > make 
+    > make install
+
+This will install the amp shared objects and binaries in ./lib and ./bin
+directories directly in the package root directory. 
+
+Detailed Installation
+------------------
+
 
 
 Recent Changes
