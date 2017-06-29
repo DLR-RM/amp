@@ -1,7 +1,29 @@
+/*
+FILE amp/trajectories.hpp
+
+LICENSE
+
+Copyright 2017 Samantha Stoneman
+Research Associate, German Aerospace Center (DLR)
+
+This file is part of the Articulated-robot Motion Planner (Amp) library.
+
+Amp is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Amp is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with Amp. If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #ifndef TRAJECTORIES_HPP
 #define TRAJECTORIES_HPP
-
-
 
 #ifdef USE_EIGEN_PKGCONFIG_HEADERS
 #include <eigen3/Eigen/Dense>
@@ -14,11 +36,11 @@
 
 
 #ifdef VERBOSE
-  #define _VERBOSE_OUTPUT_
+#define _VERBOSE_OUTPUT_
 #endif //VERBOSE
 
 #ifdef DEBUG
-  #define _DEBUG_
+#define _DEBUG_
 #endif //DEBUG
 
 namespace amp {
@@ -155,7 +177,7 @@ public:
      * @brief this method is for easy debug output of trajectories
      */
     Matrix const whole_trajectory() const {
-            return(trajectory_);
+        return(trajectory_);
     }
 
 
@@ -198,8 +220,8 @@ public:
                                      const int via_=0,
                                      int total_=0) const {
         return( MapMatrixConst(trajectory_.data()+(via_*n_cols)+1+(dim_*ders),
-                              (total_==0 ? viapoints : total_), ders,
-                              Eigen::Stride<dynamic,dynamic>(1,n_cols)) );
+                               (total_==0 ? viapoints : total_), ders,
+                               Eigen::Stride<dynamic,dynamic>(1,n_cols)) );
     }
 
 
@@ -266,16 +288,16 @@ public:
                                            const int via_=0,
                                            int total_=0) const {
         return( MapMatrixConst(trajectory_.data()+(via_*n_cols)+1+n_state+n_angle+n_control+(dim_*ders),
-                              (total_==0 ? viapoints : total_), ders,
-                              Eigen::Stride<dynamic,dynamic>(1,n_cols)) );
+                               (total_==0 ? viapoints : total_), ders,
+                               Eigen::Stride<dynamic,dynamic>(1,n_cols)) );
     }
 
 
 
     MapMatrixConst const manipulability(const int via_=0, int total_=0) const {
         return( MapMatrixConst(trajectory_.data()+(via_*n_cols)+1+n_state+n_angle+n_control+n_joint,
-                              (total_==0 ? viapoints : total_), 1,
-                              Eigen::Stride<dynamic,dynamic>(1,n_cols)) );
+                               (total_==0 ? viapoints : total_), 1,
+                               Eigen::Stride<dynamic,dynamic>(1,n_cols)) );
     }
 
 
@@ -375,11 +397,11 @@ public:
      * \a values has size (\a dof x \a total_)
      */
     void set_joint_derivatives(const Matrix& values,
-                            const int dim_,
-                            const int der_,
-                            const int nder_,
-                            const int via_,
-                            int total_);
+                               const int dim_,
+                               const int der_,
+                               const int nder_,
+                               const int via_,
+                               int total_);
 
 
     /**
@@ -388,11 +410,11 @@ public:
      * defaults to positions (der_=0)
      */
     void set_joint_dimensions(const Matrix& values,
-                     const int der_,
-                     const int dim_,
-                     const int ndof_,
-                     const int via_,
-                     int total_);
+                              const int der_,
+                              const int dim_,
+                              const int ndof_,
+                              const int via_,
+                              int total_);
 
 
     /**

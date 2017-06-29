@@ -21,6 +21,7 @@ GNU Lesser General Public License for more details.
 You should have received a copy of the GNU Lesser General Public License
 along with Amp. If not, see <http://www.gnu.org/licenses/>.
 */
+
 #ifndef _AMP_RRT_HPP_
 #define _AMP_RRT_HPP_
 
@@ -34,11 +35,11 @@ along with Amp. If not, see <http://www.gnu.org/licenses/>.
 
 
 #ifdef USE_EIGEN_PKGCONFIG_HEADERS
-    #include <eigen3/Eigen/Dense>
-    #include <eigen3/Eigen/StdVector>
+#include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/StdVector>
 #else
-    #include <Eigen/Dense>
-    #include <Eigen/StdVector>
+#include <Eigen/Dense>
+#include <Eigen/StdVector>
 #endif
 
 #include "kdtree/kdtree.h"
@@ -50,15 +51,15 @@ along with Amp. If not, see <http://www.gnu.org/licenses/>.
 
 
 #ifdef DEBUG
-  #define _DEBUG_
+#define _DEBUG_
 #endif
 
 #ifdef VERBOSE
-  #define _VERBOSE_
+#define _VERBOSE_
 #endif
 
 #ifdef LOG_ALL_DATA
-  #define _LOG_ALL_DATA_
+#define _LOG_ALL_DATA_
 #endif
 
 namespace amp {

@@ -436,17 +436,17 @@ void spline_generator<scalar,order_,n_fbcs_,n_vert_>
         Ntotl *= (1./time_pwrs(i,i));
         linear_problem_setup(Nfree, bfree, Ntotl, Ptotl);
 
-         // lower bounds
+        // lower bounds
         ci0.segment((i*2)*num_viapts,num_viapts)
                 = -1.0*(Vector::Constant(num_viapts, lims(i,0)) - bfree);
-         // upper bounds
+        // upper bounds
         ci0.segment((i*2+1)*num_viapts, num_viapts)
                 = Vector::Constant(num_viapts, lims(i,1)) - bfree;
 
         // lower bounds
         CI.block(0,(i*2)*num_viapts,n_p,num_viapts)
                 = Nfree.transpose();
-         // upper bounds
+        // upper bounds
         CI.block(0,(i*2+1)*num_viapts,n_p,num_viapts)
                 = -1.0*Nfree.transpose();
     }

@@ -1,3 +1,27 @@
+/*
+FILE amp/integrator.hpp
+
+LICENSE
+
+Copyright 2017 Samantha Stoneman
+Research Associate, German Aerospace Center (DLR)
+
+This file is part of the Articulated-robot Motion Planner (Amp) library.
+
+Amp is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Amp is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with Amp. If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #ifndef _AMP_INTEGRATOR_HPP
 #define _AMP_INTEGRATOR_HPP
 
@@ -5,11 +29,11 @@
 #include <memory>
 
 #ifdef USE_EIGEN_PKGCONFIG_HEADERS
-    #include <eigen3/Eigen/Dense>
-    #include <eigen3/Eigen/StdVector>
+#include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/StdVector>
 #else
-    #include <Eigen/Dense>
-    #include <Eigen/StdVector>
+#include <Eigen/Dense>
+#include <Eigen/StdVector>
 #endif
 
 #include "amp/simulation.hpp"
@@ -17,7 +41,7 @@
 #include "amp/interpolate.hpp"
 
 #ifdef DEBUG
-  #define _DEBUG_
+#define _DEBUG_
 #endif
 
 namespace amp {
@@ -85,7 +109,7 @@ struct observers
         m_tcps_ref.clear();
         m_dtcps_ref.clear();
         m_manips.clear();
-      }
+    }
 };
 
 

@@ -1,3 +1,27 @@
+/*
+FILE amp/simulation_rbdl.hpp
+
+LICENSE
+
+Copyright 2017 Samantha Stoneman
+Research Associate, German Aerospace Center (DLR)
+
+This file is part of the Articulated-robot Motion Planner (Amp) library.
+
+Amp is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Amp is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with Amp. If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #ifndef _AMP_RBDL_INTERFACE_HPP_
 #define _AMP_RBDL_INTERFACE_HPP_
 
@@ -6,9 +30,9 @@
 #include <cmath>
 
 #ifdef USE_EIGEN_PKGCONFIG_HEADERS
-    #include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/Dense>
 #else
-    #include <Eigen/Dense>
+#include <Eigen/Dense>
 #endif
 
 #include "amp/simulation.hpp"
@@ -18,7 +42,7 @@
 #include <rbdl/Logging.h>
 
 #ifdef DEBUG
-  #define _DEBUG_
+#define _DEBUG_
 #endif
 
 namespace amp {
@@ -45,7 +69,7 @@ public:
 
     rbdl_interface(const std::string& filename);
     
-	~rbdl_interface();
+    ~rbdl_interface();
 
     const int get_model_dof() const;
 
@@ -60,7 +84,7 @@ public:
      * @brief Runs the forward kinematics
      */
     void fwd_dyn(vector_t& ddstate_, const vector_t& state_,
-			const vector_t& dstate_, const vector_t& tau_);
+                 const vector_t& dstate_, const vector_t& tau_);
 
     /**
      * @brief Runs the forward kinematics and sets current
@@ -82,12 +106,17 @@ public:
      * @brief Sets the current Jacobian
      */
     jacobian_t get_J(const vector_t& state_) const;
-	
+
+    /**
+     * @brief Sets the current Jacobian
+     */
+    jacobian_t get_J_with_update(const vector_t& state_) const;
+
     /**
      * @brief solves dstate: dtcp = J(state)*dstate
      * using one of the available linear solver
      */
-    vector_t inv_kin(const matrix_t& dtcp_, const vector_t& state_, 
+    vector_t inv_kin(const matrix_t& dtcp_, const vector_t& state_,
                      const typename sim_t::lin_alg_t lin_=sim_t::DEFAULT_ALG);
 
     /**
@@ -105,8 +134,8 @@ public:
     /**
      * @brief integrate states forward one time step
      */
-    vector_t diff_kin(const vector_t& state_, const vector_t& dstate_, 
-			scalar dt_);
+    vector_t diff_kin(const vector_t& state_, const vector_t& dstate_,
+                      scalar dt_);
 
     /**
      * @brief runs the forward kinematics using numerically computed dstate

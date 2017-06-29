@@ -1,5 +1,5 @@
 /** \file rrt_example.dox 
- * \page rrt_example Inverse Kinematics -based RRT 
+ * \page rrt_example Example: Inverse kinematics -based RRT 
  *
  * This simple example demonstrates how to generate the joint trajectory of a 
  * Robot given initial and final boundary conditions on a TCP of the Robot.
@@ -27,8 +27,9 @@
 	 states and respective joint trajectories from the initial node until one
 	 can successly 'connect' to the reuqested final condition node.</li> 
  * </ul>
- * 
- * \includelineno tests/rrt_test.cpp
+ *
+ * The entire example source code: 
+ * \includelineno examples/rrt_example.cpp
  *
  */
 

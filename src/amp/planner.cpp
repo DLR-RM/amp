@@ -163,9 +163,9 @@ planner<scalar>::run_adaptive(const vector_t& state_in,
     return_type_t ret_val = return_type_t::SUCCESS;
     using namespace boost::numeric::odeint;
     typedef runge_kutta_dopri5<typename rbi_t::state_type> error_stepper_type;
-    try{        
-         integrate_adaptive(make_controlled<error_stepper_type>(int_eta_abs,int_eta_rel), *rb_integrator_,
-                            state_init, 0., interpolate_->duration(), dt_int, *rb_observer_);
+    try{
+        integrate_adaptive(make_controlled<error_stepper_type>(int_eta_abs,int_eta_rel), *rb_integrator_,
+                           state_init, 0., interpolate_->duration(), dt_int, *rb_observer_);
     }
     catch(typename rbo_t::error_msg_t errmsg) {
 #ifdef _VERBOSE_

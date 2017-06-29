@@ -1,5 +1,5 @@
 /** \file inverse_kinematics_example.dox 
- * \page inverse_kinematics_example Inverse Kinematics
+ * \page inverse_kinematics_example Example: Inverse kinematics local planning 
  *
  * This Inverse Kinematics example demonstrates how to use several modules in the
  * Amp library to generate the joint trajectory of a Robot given initial and
@@ -24,9 +24,9 @@
  *   along the trajectory to provide the required joint motions.</li>
  * </ul>
  *
- * \includelineno tests/inverse_kinematics_test.cpp
  *
- *
+ * The entire source code:
+ * \includelineno examples/inverse_kinematics_example.cpp
  */
   
 

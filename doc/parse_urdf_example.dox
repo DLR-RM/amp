@@ -1,29 +1,49 @@
 /** \file parse_urdf_example.dox 
- * \page parse_urdf_example Parse URDF
+ * \page parse_urdf_example Example: Parsing a robot model 
  *
  * This simple example demonstrates how a *.urdf model is loaded in the Amp API
  * and how to access the data in the loaded model. To load a model requires
  * the user to select a KD library. Amp does not include urdf support, this
- * feature is a part of the KD library. The simulation class which wraps the
- * chosen KD library \c amp::sim_wrapper is instantiated with the
- * path to the desired model and populates it's internal model member on
- * construction.  
+ * feature is a part of the KD library. 
  *
- * \includelineno tests/parse_urdf_test.cpp
+ * The model is a runtime parameter along with the other parameters for the 
+ * planning and robot modules. These can be set by instantiating an 
+ * amp::parameters object and pasing to it the location of your config file.
+ * In this example a config file is included in the examples directory. In this
+ * file the first parameters specifx the desired KD library to be loaded and the
+ * urdf model. All parameters are optional, and if not provided in the config
+ * file, amp::parameters will set them the default values. However, if a model
+ * file is not specified, a simultation cannot be started. 
  *
- * Here the instantiation of \c amp::sim_wrapper internally calls the
- * creates the model object: 
  * \code
- * typedef amp::sim_wrapper<double> sim_t;
- * std::shared_ptr<sim_t> sim = std::make_shared<sim_t>(file_name_in);
+ * const char* config_file;
+ * if (argc>1) config_file = argv[1];
+ * config_t configuration(config_file);
+ * configuration.set_from_yaml();
+ * \endcode
+ * 
+ * The simulation class which wraps the chosen KD library amp::simulation is 
+ * instantiated with the path to the desired model and populates it's internal 
+ * model member on at construction. The simulation is started by intanstiating a
+ * simulation object through the parameters object. 
+ *
+ * The amp::parameters::create_simulation returns a smart pointer to a new
+ * simulation object, which has internally created a robot model
+ *
+ * \code
+ * std::shared_ptr<sim_t> sim = configuration.create_simulation();
  * \endcode
  *
  * The simulation API can then be used to inspect the model and computer
- * properties with it:
+ * properties with it, for example to simply get the degrees of freedom (dof) of
+ * the robot model:
  *
  * \code
  * std::cerr << "model num dof: " << sim->get_model_dof() << std::endl;
  * \endcode
+ *
+ * The entire source code:
+ * \includelineno examples/parse_urdf_example.cpp
  *
  */
   

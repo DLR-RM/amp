@@ -671,6 +671,11 @@ INPUT                  = ../src/amp \
 						 ../include/amp \
 						 ../include/utils \
 						 ../doc/mainpage.dox \
+						 ../doc/robot_models.dox \
+						 ../doc/trajectory_generation.dox \
+						 ../doc/inverse_kinematics_planning.dox \
+						 ../doc/sampling_based_planners.dox \
+						 ../doc/collision_detection.dox \
 						 ../doc/parse_urdf_example.dox \
 						 ../doc/inverse_kinematics_example.dox \
 						 ../doc/rrt_example.dox
@@ -747,7 +752,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ../tests"
+EXAMPLE_PATH           = ../examples
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp

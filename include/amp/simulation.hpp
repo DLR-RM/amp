@@ -111,6 +111,9 @@ public:
      */
     virtual jacobian_t get_J(const vector_t& state_) const = 0;
 	
+
+    virtual jacobian_t get_J_with_update(const vector_t& state_) const = 0;
+
     /**
      * @brief solves dstate: dtcp = J(state)*dstate
      * using one of the available linear solver
