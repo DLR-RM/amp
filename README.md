@@ -49,11 +49,10 @@ And the optional dependencies:
 * Orocos KDL http://www.orocos.org/kdl 
 * Bullet Collision Library http://bulletphysics.org  (Collision library)
 
-Amp will try to find the depencies using the native CMake find_package() tool as
-well as with the PkgConfig module. Paths to the valid package paths for the
-required dependencies and the desired optional ones should be set in the
-CMAKE_PREFIX_PATH. Static versions of the kdtree and EigenQuadProg (header
-only) are also provided in the ./contrib dir. 
+Amp will try to find the depencies using the native CMake `find_package()` tool as
+well as with the `PkgConfig` module. Valid paths to the required dependencies and 
+the desired optional ones should be set in the `CMAKE_PREFIX_PATH`. Static versions 
+of the kdtree and EigenQuadProg (header only) are also provided in the contrib dir. 
 
 Quick Installation
 -------------------
@@ -66,24 +65,23 @@ cd build && cmake ../
 make 
 make install
 ```
-
-This will install the amp shared objects and binaries in ./lib and ./bin
+This will install the amp shared objects and binaries in lib and bin
 directories directly in the package root directory. 
 
 Detailed Installation
 ----------------------
 Amp comes with several build options which affect what is built and how. The
-standard cmake variable CMAKE_INSTALL_PREFIX allows changing the location of the
+standard cmake variable `CMAKE_INSTALL_PREFIX` allows changing the location of the
 install dirs lib, bin, and incude. Amp can be built in Debug, RelWithDebInfo or
-full Release mode with CMAKE_BUILD_TYPE.
+full Release mode with `CMAKE_BUILD_TYPE`.
 
 All of the unique amp build options are detailed in the root CMakeLists.txt. The
 most important of which are the options which turn on and off compilation of
 code sections: 
 
-* DEBUG - allows computations which are not strictly necessary e.g. matrix determinants
-* VERBOSE - streams verbose output to std::cerr during runtime
-* LOG_ALL_DATA - writes intermediate data to files during runtime 
+* `DEBUG` - allows computations which are not strictly necessary e.g. matrix determinants
+* `VERBOSE` - streams verbose output to std::cerr during runtime
+* `LOG_ALL_DATA` - writes intermediate data to files during runtime 
 
 The default is always OFF, setting these options to ON will greatly affect 
 computation time, but can be helpful for debugging purposes. 
