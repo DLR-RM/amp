@@ -10,21 +10,21 @@ of the library, but can be loaded at run-time allowing the user flexibility to
 suit their needs. The library includes general modules for: 
 
 * Robot trajectory and state representation
-    * Using Eigen matrix objects http://eigen.tuxfamily.org 
+  * Using Eigen matrix objects http://eigen.tuxfamily.org 
 * Trajectory parameterization with general BSplines
-    * Supports linear fitting
-    * Supports quadratic minimization,  
+  * Supports linear fitting
+  * Supports quadratic minimization,  
 * Interface to various robot kinematics and dynamics libraries:
-    * RBDL https://bitbucket.org/rbdl/rbdl
-    * Orocos KDL http://www.orocos.org/kdl 
+  * RBDL https://bitbucket.org/rbdl/rbdl
+  * Orocos KDL http://www.orocos.org/kdl 
 * Forward and Inverse kinematics trajectory generation
-    * Where IK solutions are computed numerically
+  * Where IK solutions are computed numerically
 * Sampling-based motion planning (RRT, RRT*)
-    * Using a simple list-based tree structure and kd-tree nearest-neighbor search: https://github.com/jtsiomb/kdtree  
-    * In any Tool Center Point (TCP) space
-    * In the robot's joint space
-    * With bound constraints on states and inputs, 
-    * and collision constraints using the Bullet Collision Library http://bulletphysics.org  
+  * Using a simple list-based tree structure and kd-tree nearest-neighbor search: https://github.com/jtsiomb/kdtree  
+  * In any Tool Center Point (TCP) space
+  * In the robot's joint space
+  * With bound constraints on states and inputs, 
+  * and collision constraints using the Bullet Collision Library http://bulletphysics.org  
 
 The code is developed by Samantha Stoneman <samantha.stoneman@dlr.de> and 
 Roberto Lampariello <roberto.lampariello@dlr.de> at the Institue of Robotics 
@@ -60,7 +60,7 @@ Quick Installation
 Amp is built using CMake. From the package root directory, the simplest way to 
 build amp using the default build options.
 
-```sh
+``` sh
 mkdir build
 cd build && cmake ../ 
 make 
