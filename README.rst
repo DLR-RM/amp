@@ -10,10 +10,10 @@ of the library, but can be loaded at run-time allowing the user flexibility to
 suit their needs. The library includes general modules for: 
 
 * Robot trajectory and state representation
-    * Using Eigen matrix objects
+    * Using Eigen matrix objects http://eigen.tuxfamily.org 
 * Trajectory parameterization with general BSplines
     * Supports linear fitting
-    * Supports quadratic minimization 
+    * Supports quadratic minimization,  
 * Interface to various robot kinematics and dynamics libraries:
     * RBDL https://bitbucket.org/rbdl/rbdl
     * Orocos KDL http://www.orocos.org/kdl 
@@ -35,14 +35,14 @@ Installation
 ===============================================================================
 
 Dependencies
-------------------
+-------------
 Amp requires at least C++11 and is dependent on several other open-source 
 libraries. The required dependencies are:
 
 * Eigen http://eigen.tuxfamily.org (Core, Linear Algebra and Geometry modules)  
 * Boost http://www.boost.org/ (odeint library)
 * kdtree https://github.com/jtsiomb/kdtree 
-* EigenQuadProg
+* EigenQuadProg 
 
 And the optional dependencies:
 * RBDL https://bitbucket.org/rbdl/rbdl (rbdl, urdf/luamodel libraries)
@@ -56,7 +56,7 @@ required dependencies and the desired optional ones should be set in the
 only) are also provided in the ./contrib dir. 
 
 Quick Installation
-------------------
+-------------------
 Amp is built using CMake. From the package root directory, the simplest way to 
 build amp using the default build options.
 
@@ -69,15 +69,27 @@ This will install the amp shared objects and binaries in ./lib and ./bin
 directories directly in the package root directory. 
 
 Detailed Installation
-------------------
+----------------------
+Amp comes with several build options which affect what is built and how. The
+standard cmake variable `CMAKE_INSTALL_PREFIX` allows changing the location of the
+install dirs lib, bin, and incude. Amp can be built in Debug, RelWithDebInfo or
+full Release mode with `CMAKE_BUILD_TYPE`.
 
+All of the unique amp build options are detailed in the root CMakeLists.txt. The
+most important of which are the options which turn on and off compilation of
+code sections: 
+
+* `DEBUG` - allows computations which are not strictly necessary e.g. matrix determinants
+* `VERBOSE` - streams verbose output to std::cerr during runtime
+* `LOG_ALL_DATA` - writes intermediate data to files during runtime 
+
+The default is always OFF, setting these options to ON will greatly affect 
+computation time, but can be helpful for debugging purposes. 
 
 
 Recent Changes
 ===============================================================================
 
-* 22 June 2017: New release 1.0.0:
-    * Initial public release.
 
 
 Performance
